@@ -1,0 +1,13 @@
+
+body{
+
+	background-color: #000;
+	color: #fff;
+	font-family: Arial;
+}
+
+.cashier{
+	float: left;
+	display: inline;
+	width: calc(100%/6);
+}
