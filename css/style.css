@@ -11,3 +11,15 @@ body{
 	display: inline;
 	width: calc(100%/6);
 }
+
+
+.cf:after{
+	clear: both;
+	display: table;
+	content:'';
+}
+
+.svg-container{
+	background-color: #fff;
+	height: 100px;
+}

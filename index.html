@@ -5,212 +5,26 @@
 	<title>Project 3</title>
 	<link rel="stylesheet" href="css/style.css">
 <script src="js/jquery-3.1.0.min.js"></script>
-	<script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="js/app.js">
 
- var names = [
-'Sophia',
-'Emma',
-'Olivia',
-'Isabella',
-'Ava',
-'Lily',
-'Zoe',
-'Chloe',
-'Mia',
-'Madison',
-'Emily',
-'Ella',
-'Madelyn',
-'Abigail',
-'Aubrey',
-'Addison',
-'Avery',
-'Layla',
-'Hailey',
-'Amelia',
-'Hannah',
-'Charlotte',
-'Kaitlyn',
-'Harper',
-'Kaylee',
-'Sophie',
-'Mackenzie',
-'Peyton',
-'Riley',
-'Grace',
-'Brooklyn',
-'Sarah',
-'Aaliyah',
-'Anna',
-'Arianna',
-'Ellie',
-'Natalie',
-'Isabelle',
-'Lillian',
-'Evelyn',
-'Elizabeth',
-'Lyla',
-'Lucy',
-'Claire',
-'Makayla',
-'Kylie',
-'Audrey',
-'Maya',
-'Leah',
-'Gabriella',
-'Annabelle',
-'Savannah',
-'Nora',
-'Reagan',
-'Scarlett',
-'Samantha',
-'Alyssa',
-'Allison',
-'Elena',
-'Stella',
-'Alexis',
-'Victoria',
-'Aria',
-'Molly',
-'Maria',
-'Bailey',
-'Sydney',
-'Bella',
-'Mila',
-'Taylor',
-'Kayla',
-'Eva',
-'Jasmine',
-'Gianna',
-'Alexandra',
-'Julia',
-'Eliana',
-'Kennedy',
-'Brianna',
-'Ruby',
-'Lauren',
-'Alice',
-'Violet',
-'Kendall',
-'Morgan',
-'Caroline',
-'Piper',
-'Brooke',
-'Elise',
-'Alexa',
-'Sienna',
-'Reese',
-'Clara',
-'Paige',
-'Kate',
-'Nevaeh',
-'Sadie',
-'Quinn',
-'Isla',
-'Eleanor'
- ];
-
- var positions = [];
-
-
-
-
-$(document).ready(function(){
-
-
-start();
-
-
-
-});
-
-
-
-var Customer = function (name, cash){
-	this.name = name || 'Unknow';
-	this.cash = cash || Math.floor(Math.random() * 5000);
-};
-
-
- 
-
-
-function start (){
-	for (var i = 0; i < names.length; i++) {
-	positions.push({
-	index: i,
-	created: false
-	});
-};
-
-
-
-
-var customerCreator = setInterval(addCustomer, 1000);
-
-
-
-function addCustomer(){
-	var _index = Math.floor(Math.random() * names.length)
-	console.log(names[_index]);
-
-	if (checkList()){
-		console.log('full');
-		clearInterval(customerCreator);
-		report();
-	} else{
-		console.log('there are positions available');
-
-	if(positions[_index].created){
-		console.log("It is created");
-
-	} else {
-		console.log("It is new")
-		positions[_index].created = true;
-	}
-	if (!window[names[_index]]){
-		window[names[_index]] = new Customer(names[_index])
-		console.log(window[names[_index]]);
-		var _cashier = Math.floor(Math.random() * 6);
-		$('.cashier-' + _cashier + ' .users').append($('<li/>', {
-		html: names[_index]
-		}));
-	}
-
-	}
-	}
-}
-
-
-function checkList (){
-	var trueValues = 0;
-	for (var i = 0; i < positions.length; i++) {
-		if(positions[i].created){
-			trueValues++;
-		}
-		if (positions.length == trueValues){
-	  return true;
-		}
-	}
-}
-
-
-function report(){
-	$.each($('.cashier .users'), function (index, element){
-		console.log('Cashier Number ' + (index + 1) + ' had ' + $(element).find('li').length);
-	});
-}
-
-//  clearInterval(myVar);
 
  </script>
 </head>
 <body>
 	
 <h2>Bank simulation</h2>
+
+<div class="bank cf">
+	
+
 <div class="cashier cashier-0" id="cashier-0">
 
 	<h1>Cashier 1</h1>
+<p class="amount"></p>
+
+
+
 <ol class="users"></ol>
 
 
@@ -219,6 +33,10 @@ function report(){
 <div class="cashier cashier-1" id="cashier-1">
 
 	<h1>Cashier 2</h1>
+<p class="amount"></p>
+
+
+
 <ol class="users"></ol>
 
 
@@ -226,6 +44,10 @@ function report(){
 <div class="cashier cashier-2" id="cashier-2">
 
 	<h1>Cashier 3</h1>
+<p class="amount"></p>
+
+
+
 <ol class="users"></ol>
 
 
@@ -233,6 +55,10 @@ function report(){
 <div class="cashier cashier-3" id="cashier-3">
 
 	<h1>Cashier 4</h1>
+<p class="amount"></p>
+
+
+
 <ol class="users"></ol>
 
 
@@ -240,6 +66,10 @@ function report(){
 <div class="cashier cashier-4" id="cashier-4">
 
 	<h1>Cashier 5</h1>
+<p class="amount"></p>
+
+
+
 <ol class="users"></ol>
 
 
@@ -247,11 +77,25 @@ function report(){
 <div class="cashier cashier-5" id="cashier-5">
 
 	<h1>Cashier 6</h1>
+<p class="amount"></p>
+
+
+
 <ol class="users"></ol>
 
 
 </div>
  
+
+
+</div>
+
+<h1>Graph</h1>
+<div class="svg-container cf">
+	<!-- <svg width="200"></svg> -->
+</div>
+
+
 
 
  
